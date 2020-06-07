@@ -4,7 +4,7 @@ export interface IOpenWeatherResponse {
     hourly: IOpenWeatherResponseData[];
 }
 
-export interface IOpenWeatherResponseData {
+interface IOpenWeatherResponseData {
     clouds: number;
     dew_point: number;
     dt: number;

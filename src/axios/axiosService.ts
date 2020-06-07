@@ -14,10 +14,10 @@ export const getPlaceLatLng = async (place: string): Promise<IPosition | undefin
     return undefined;
 }
 
-export const getWeather = async (lat: string, lng: string): Promise<any> => {
+export const getWeather = async (lat: string, lng: string): Promise<IOpenWeatherResponse | undefined> => {
     const response = await axios.get<IOpenWeatherResponse>(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
     if (response.data) {
-        return response.data.current;
+        return response.data;
     }
-    return response;
+    return undefined;
 }
