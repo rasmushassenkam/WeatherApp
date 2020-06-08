@@ -4,13 +4,14 @@ export interface IOpenWeatherResponse {
     hourly: IOpenWeatherResponseData[];
 }
 
-interface IOpenWeatherResponseData {
+export interface IOpenWeatherResponseData {
     clouds: number;
     dew_point: number;
     dt: number;
     feels_like: number;
     humidity: number;
     pressure: number;
+    rain?: IOpenWeatherResponseRain;
     sunrise: number;
     sunset: number;
     temp: number;
@@ -19,6 +20,10 @@ interface IOpenWeatherResponseData {
     weather: IOpenWeatherResponseWeather[];
     wind_deg: number;
     wind_speed: number;
+}
+
+interface IOpenWeatherResponseRain {
+    ["1h"]: number;
 }
 
 interface IOpenWeatherResponseWeather {
