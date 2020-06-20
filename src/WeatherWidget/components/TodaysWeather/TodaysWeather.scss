@@ -1,0 +1,14 @@
+.todays-weather {
+    display: flex;
+    overflow-y: auto;
+    height: 315px;
+    width: 80%;
+    background: #FFF;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(#a0a0a0,0.5);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(#a0a0a0,0.5);
+    box-shadow: 0px 0px 15px 0px rgba(#a0a0a0,0.5);
+    border-radius: 4px;
+    color: #4b4c4c;
+    position: relative;
+    border-left: 5px solid #00008B;
+}

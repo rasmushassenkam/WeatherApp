@@ -1,0 +1,14 @@
+.weather-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 1px solid #a0a0a0;
+    padding: 10px;
+    .time {
+        font-weight: 700;
+    }
+    img {
+        transform: scale(0.7);
+    }
+}

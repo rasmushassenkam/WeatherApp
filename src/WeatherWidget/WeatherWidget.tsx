@@ -5,6 +5,7 @@ import { IPosition } from "../interfaces/IPosition";
 import { IOpenWeatherResponse } from "../interfaces/api/IOpenWeatherResponse";
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
 import { EUnits } from "../enums/EUnits";
+import { TodaysWeahter } from "./components/TodaysWeather/TodaysWeather";
 
 export const WeatherWidget: React.FC = () => {
     const [place, setPlace] = useState<string>("Copenhagen");
@@ -18,15 +19,23 @@ export const WeatherWidget: React.FC = () => {
         }
     }, [position, units]);
 
+    const getPlaceAndSetPos = useCallback(async () => {
+        const latLng = await getPlaceLatLng(place);
+        setPosition(latLng);
+    }, [place]);
+
     useEffect(() => {
         fetchWeather();
     }, [position, fetchWeather]);
 
+    useEffect(() => {
+        getPlaceAndSetPos();
+    }, [getPlaceAndSetPos]);
 
     const handleOnClick = async () => {
-        const latLng = await getPlaceLatLng(place);
-        setPosition(latLng);
+        await getPlaceAndSetPos();
     }
+
 
     return (
         <div className="weather-widget">
@@ -42,7 +51,10 @@ export const WeatherWidget: React.FC = () => {
                 }
             </select>
             <button onClick={handleOnClick}>Search</button>
-            <CurrentWeather currentWeather={weather?.current} units={units} />
+            <div className="today">
+                <CurrentWeather currentWeather={weather?.current} units={units} />
+                <TodaysWeahter todaysWeather={weather?.hourly.slice(0, 24)} units={units} />
+            </div>
         </div>
     )
 }
