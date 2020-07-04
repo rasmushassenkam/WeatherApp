@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodaysWeather.scss"
 import { IOpenWeatherResponseData } from "../../../interfaces/api/IOpenWeatherResponse";
-import { WeatherCell } from "./components/WeatherCell/WeatherCell";
+import { TodaysWeatherCell } from "./components/WeatherCell/TodaysWeatherCell";
 import { EUnits } from "../../../enums/EUnits";
 
 interface IProps {
@@ -23,7 +23,7 @@ export const TodaysWeahter: React.FC<IProps> = ({ todaysWeather, units }) => {
             {
                 todaysWeather?.map((weather, index) => {
                     return (
-                        <WeatherCell key={index} time={getTime(index)} todaysWeather={weather} units={units} />
+                        <TodaysWeatherCell key={index} time={getTime(index)} todaysWeather={weather} units={units} />
                     );
                 })
             }

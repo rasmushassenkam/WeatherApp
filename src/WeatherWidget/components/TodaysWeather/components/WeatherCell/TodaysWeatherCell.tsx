@@ -1,5 +1,5 @@
 import React from "react";
-import "./WeatherCell.scss";
+import "./TodaysWeatherCell.scss";
 import { IOpenWeatherResponseData } from "../../../../../interfaces/api/IOpenWeatherResponse";
 import { getSpeedUnits } from "../../../../../helpers/getSpeedUnits";
 import { EUnits } from "../../../../../enums/EUnits";
@@ -11,7 +11,7 @@ interface IProps {
     units: EUnits | string;
 }
 
-export const WeatherCell: React.FC<IProps> = ({ todaysWeather, time, units }) => {
+export const TodaysWeatherCell: React.FC<IProps> = ({ todaysWeather, time, units }) => {
     return (
         <div className="weather-cell">
             <div className="time">{time}</div>

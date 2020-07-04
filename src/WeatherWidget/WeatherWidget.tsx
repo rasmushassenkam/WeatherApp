@@ -6,6 +6,7 @@ import { IOpenWeatherResponse } from "../interfaces/api/IOpenWeatherResponse";
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
 import { EUnits } from "../enums/EUnits";
 import { TodaysWeahter } from "./components/TodaysWeather/TodaysWeather";
+import { WeeklyWeather } from "./components/WeeklyWeather/WeeklyWeather";
 
 export const WeatherWidget: React.FC = () => {
     const [place, setPlace] = useState<string>("Copenhagen");
@@ -54,6 +55,9 @@ export const WeatherWidget: React.FC = () => {
             <div className="today">
                 <CurrentWeather currentWeather={weather?.current} units={units} />
                 <TodaysWeahter todaysWeather={weather?.hourly.slice(0, 24)} units={units} />
+            </div>
+            <div className="weakly">
+                <WeeklyWeather weeklyWeather={weather?.daily} units={units} />
             </div>
         </div>
     )
